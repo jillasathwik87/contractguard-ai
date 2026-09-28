@@ -1,3 +1,4 @@
+.streamlit/
 # Python
 __pycache__/
 *.py[cod]
