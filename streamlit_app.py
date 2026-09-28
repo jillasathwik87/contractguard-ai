@@ -9,7 +9,7 @@ import streamlit as st
 
 API_BASE = os.getenv(
     "CONTRACTGUARD_API_URL",
-    "http://127.0.0.1:8000"
+    "https://toolkit-isbn-statute-modelling.trycloudflare.com"
 ).rstrip("/")
 
 
