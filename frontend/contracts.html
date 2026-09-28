@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ContractGuard AI - Contracts</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-logo">
+                CG
+            </div>
+
+            <div class="brand-text">
+                <h2>ContractGuard</h2>
+                <span>AI Compliance</span>
+            </div>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <a href="index.html" class="nav-link">
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="contracts.html" class="nav-link active">
+                <span class="nav-icon">▤</span>
+                <span>Contracts</span>
+            </a>
+
+            <a href="compliance.html" class="nav-link">
+                <span class="nav-icon">✓</span>
+                <span>Compliance Rules</span>
+            </a>
+
+            <a href="ask-ai.html" class="nav-link">
+                <span class="nav-icon">✦</span>
+                <span>Ask AI</span>
+            </a>
+
+            <a href="settings.html" class="nav-link">
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-footer">
+
+            <div class="system-status">
+
+                <span class="status-dot"></span>
+
+                <div>
+                    <strong>System Online</strong>
+                    <small>ContractGuard backend</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <p class="eyebrow">
+                    CONTRACT MANAGEMENT
+                </p>
+
+                <h1>
+                    Contracts
+                </h1>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <div class="profile">
+
+                    <div class="profile-avatar">
+                        CG
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong>
+                            Contract Manager
+                        </strong>
+
+                        <span>
+                            Compliance workspace
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- PAGE INTRO -->
+
+        <section class="welcome-banner">
+
+            <div>
+
+                <p class="banner-label">
+                    CONTRACT ANALYSIS
+                </p>
+
+                <h2>
+                    Analyze a contract
+                </h2>
+
+                <p>
+                    Upload a PDF contract and ContractGuard AI
+                    will analyze its clauses and compliance rules.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- UPLOAD CARD -->
+
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h3>
+                        Upload Contract
+                    </h3>
+
+                    <p>
+                        Select a PDF document to begin analysis.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="upload-area" id="uploadArea">
+
+                <div class="upload-icon">
+                    ↑
+                </div>
+
+
+                <h3>
+                    Upload your contract
+                </h3>
+
+
+                <p>
+                    PDF files only
+                </p>
+
+
+                <input type="file" id="contractFile" accept=".pdf,application/pdf" hidden>
+
+
+                <button type="button" class="primary-button" id="chooseFileButton">
+                    Choose PDF
+                </button>
+
+
+                <div id="selectedFile" class="selected-file">
+                    No file selected
+                </div>
+
+            </div>
+
+
+            <!-- CONTRACT SELECTION -->
+            <div id="contractSelectionArea" style="display:none; margin-top:20px;">
+                <label for="contractSelector" style="display:block; margin-bottom:8px; font-size:12px; font-weight:700; color:#374151;">
+                    Select Contract to Analyze
+                </label>
+                <select id="contractSelector" style="width:100%; padding:12px; border:1px solid #d1d5db; border-radius:10px; background:#ffffff; font-size:12px; color:#374151; outline:none;">
+                    <option value="">Select a contract</option>
+                </select>
+            </div>
+
+            <!-- ANALYZE BUTTON -->
+            <div style="display:flex; justify-content:center; margin-top:20px;">
+                <button type="button" class="primary-button" id="analyzeButton" disabled>
+                    Analyze Contract
+                </button>
+            </div>
+
+            <!-- STATUS -->
+            <div id="contractStatus" style="text-align:center; margin-top:14px; color:#6b7280; font-size:11px;">
+                Select a PDF to begin.
+            </div>
+
+        </section>
+
+
+        <!-- RESULT AREA -->
+
+        <section id="analysisResults" style="display:none; margin-top:18px;">
+
+
+            <!-- CONTRACT INFORMATION -->
+
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h3>
+                            Contract Analysis
+                        </h3>
+
+                        <p id="resultContractName">
+                            Contract
+                        </p>
+
+                    </div>
+
+                    <div id="resultStatus" style="
+                            font-size:10px;
+                            font-weight:700;
+                        ">
+                    </div>
+
+                </div>
+
+
+                <!-- SUMMARY -->
+
+                <div class="stats-grid">
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-icon blue">
+                            #
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Contract Type
+                            </span>
+
+                            <strong id="resultContractType" style="font-size:14px;">
+                                -
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-icon green">
+                            ✓
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Passed
+                            </span>
+
+                            <strong id="resultPassed">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-icon red">
+                            !
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Failed
+                            </span>
+
+                            <strong id="resultFailed">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-icon orange">
+                            ?
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Missing
+                            </span>
+
+                            <strong id="resultMissing">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- SCORE -->
+
+                <div id="complianceScoreBox" style="
+                        margin-top:20px;
+                        padding:18px;
+                        background:#f8fafc;
+                        border:1px solid #e5e7eb;
+                        border-radius:10px;
+                    ">
+
+                    <div style="
+                            display:flex;
+                            justify-content:space-between;
+                            align-items:center;
+                            margin-bottom:10px;
+                        ">
+
+                        <strong style="font-size:11px;">
+                            Compliance Score
+                        </strong>
+
+                        <strong id="resultScore" style="
+                                font-size:18px;
+                                color:#4f46e5;
+                            ">
+                            0%
+                        </strong>
+
+                    </div>
+
+
+                    <div style="
+                            height:8px;
+                            background:#e5e7eb;
+                            border-radius:20px;
+                            overflow:hidden;
+                        ">
+
+                        <div id="scoreBar" style="
+                                width:0%;
+                                height:100%;
+                                background:#4f46e5;
+                                transition:width .4s ease;
+                            ">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CHECKLIST -->
+
+            <div class="dashboard-card" style="margin-top:18px;">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h3>
+                            Compliance Checklist
+                        </h3>
+
+                        <p>
+                            Rules checked against the contract
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div id="checklistContainer">
+
+                    <div class="empty-state">
+
+                        <h4>
+                            No checklist results
+                        </h4>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SUMMARY -->
+
+            <div class="dashboard-card" style="margin-top:18px;">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h3>
+                            AI Summary
+                        </h3>
+
+                        <p>
+                            Plain-English contract summary
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div id="summaryContainer" style="
+                        color:#4b5563;
+                        font-size:11px;
+                        line-height:1.8;
+                    ">
+                    No summary available.
+                </div>
+
+            </div>
+
+
+            <!-- SOURCE -->
+
+            <div class="dashboard-card" style="margin-top:18px;">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h3>
+                            Source Information
+                        </h3>
+
+                        <p>
+                            Contract source used for the analysis
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <pre id="sourceContainer" style="
+                        white-space:pre-wrap;
+                        background:#f8fafc;
+                        padding:15px;
+                        border-radius:10px;
+                        border:1px solid #e5e7eb;
+                        font-size:10px;
+                        line-height:1.6;
+                        color:#374151;
+                    ">No source information available.</pre>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer class="app-footer">
+
+            <span>
+                ContractGuard AI
+            </span>
+
+            <span>
+                Contract compliance workspace
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="js/config.js"></script>
+
+    <script src="js/common.js"></script>
+
+    <script src="js/contracts.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ContractGuard AI - Settings</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-logo">
+                CG
+            </div>
+
+            <div class="brand-text">
+                <h2>ContractGuard</h2>
+                <span>AI Compliance</span>
+            </div>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <a href="index.html" class="nav-link">
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="contracts.html" class="nav-link">
+                <span class="nav-icon">▤</span>
+                <span>Contracts</span>
+            </a>
+
+            <a href="compliance.html" class="nav-link">
+                <span class="nav-icon">✓</span>
+                <span>Compliance Rules</span>
+            </a>
+
+            <a href="ask-ai.html" class="nav-link">
+                <span class="nav-icon">✦</span>
+                <span>Ask AI</span>
+            </a>
+
+            <a href="settings.html" class="nav-link active">
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-footer">
+
+            <div class="system-status">
+
+                <span class="status-dot"></span>
+
+                <div>
+                    <strong>System Online</strong>
+                    <small>ContractGuard backend</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <p class="eyebrow">
+                    APPLICATION SETTINGS
+                </p>
+
+                <h1>
+                    Settings
+                </h1>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <div class="profile">
+
+                    <div class="profile-avatar">
+                        CG
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong>
+                            Contract Manager
+                        </strong>
+
+                        <span>
+                            Workspace settings
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- INTRO -->
+
+        <section class="welcome-banner">
+
+            <div>
+
+                <p class="banner-label">
+                    PREFERENCES
+                </p>
+
+                <h2>
+                    Customize ContractGuard
+                </h2>
+
+                <p>
+                    Manage appearance, AI behavior, notifications,
+                    contract analysis and privacy preferences.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- APPEARANCE -->
+
+        <section class="settings-section">
+
+            <div class="settings-section-header">
+
+                <div class="settings-section-icon">
+                    ◐
+                </div>
+
+                <div>
+
+                    <h2>
+                        Appearance
+                    </h2>
+
+                    <p>
+                        Customize how ContractGuard looks.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-card">
+
+
+                <!-- DARK MODE -->
+
+                <div class="setting-row">
+
+                    <div class="setting-information">
+
+                        <strong>
+                            Dark Mode
+                        </strong>
+
+                        <p>
+                            Use a darker interface throughout ContractGuard.
+                        </p>
+
+                    </div>
+
+
+                    <label class="toggle">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="toggle-slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- COMPACT MODE -->
+
+                <div class="setting-row">
+
+                    <div class="setting-information">
+
+                        <strong>
+                            Compact Interface
+                        </strong>
+
+                        <p>
+                            Reduce spacing to display more information on screen.
+                        </p>
+
+                    </div>
+
+
+                    <label class="toggle">
+
+                        <input type="checkbox" id="compactModeToggle">
+
+                        <span class="toggle-slider"></span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- AI SETTINGS -->
+
+        <section class="settings-section">
+
+            <div class="settings-section-header">
+
+                <div class="settings-section-icon">
+                    ✦
+                </div>
+
+                <div>
+
+                    <h2>
+                        AI Preferences
+                    </h2>
+
+                    <p>
+                        Configure how AI responses are presented.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-card">
+
+
+                <!-- AI RESPONSE STYLE -->
+
+                <div class="setting-row">
+
+                    <div class="setting-information">
+
+                        <strong>
+                            Response Style
+                        </strong>
+
+                        <p>
+                            Choose how detailed AI answers should be.
+                        </p>
+
+                    </div>
+
+
+                    <select id="aiResponseStyle" class="settings-select">
+
+                        <option value="concise">
+                            Concise
+                        </option>
+
+                        <option value="balanced">
+                            Balanced
+                        </option>
+
+                        <option value="detailed">
+                            Detailed
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- SOURCE CLAUSE -->
+
+                <div class="setting-row">
+
+                    <div class="setting-information">
+
+                        <strong>
+                            Show Source Clauses
+                        </strong>
+
+                        <p>
+                            Display the contract text supporting AI answers.
+                        </p>
+
+                    </div>
+
+
+                    <label class="toggle">
+
+                        <input type="checkbox" id="sourceClauseToggle" checked>
+
+                        <span class="toggle-slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- AI SUMMARY -->
+
+                <div class="setting-row">
+
+                    <div class="setting-information">
+
+                        <strong>
+                            Generate Contract Summary
+                        </strong>
+
+                        <p>
+                            Generate a plain-English summary after analysis.
+                        </p>
+
+                    </div>
+
+
+                    <label class="toggle">
+
+                        <input type="checkbox" id="summaryToggle" checked>
+
+                        <span class="toggle-slider"></span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTRACT ANALYSIS -->
+
+        <section class="settings-section">
+
+            <div class="settings-section-header">
+
+                <div class="settings-section-icon">
+                    ▤
+                </div>
+
+                <div>
+
+                    <h2>
+                        Contract Analysis
+                    </h2>
+
+                    <p>
+                        Control contract analysis behavior.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-card">
+
+
+                <!-- AUTOMATIC ANALYSIS -->
+
+                <div class="setting-row">
+
+                    <div class="setting-information">
+
+                        <strong>
+                            Automatic Analysis
+                        </strong>
+
+                        <p>
+                            Start analysis automatically after selecting a contract.
+                        </p>
+
+                    </div>
+
+
+                    <label class="toggle">
+
+                        <input type="checkbox" id="automaticAnalysisToggle">
+
+                        <span class="toggle-slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- COMPLIANCE CHECKS -->
+
+                <div class="setting-row">
+
+                    <div class="setting-information">
+
+                        <strong>
+                            Compliance Checks
+                        </strong>
+
+                        <p>
+                            Run compliance rules during contract analysis.
+                        </p>
+
+                    </div>
+
+
+                    <label class="toggle">
+
+                        <input type="checkbox" id="complianceChecksToggle" checked>
+
+                        <span class="toggle-slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- RETRIEVAL -->
+
+                <div class="setting-row">
+
+                    <div class="setting-information">
+
+                        <strong>
+                            Source Retrieval
+                        </strong>
+
+                        <p>
+                            Retrieve relevant contract clauses for AI questions.
+                        </p>
+
+                    </div>
+
+
+                    <label class="toggle">
+
+                        <input type="checkbox" id="sourceRetrievalToggle" checked>
+
+                        <span class="toggle-slider"></span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- NOTIFICATIONS -->
+
+        <section class="settings-section">
+
+            <div class="settings-section-header">
+
+                <div class="settings-section-icon">
+                    🔔
+                </div>
+
+                <div>
+
+                    <h2>
+                        Notifications
+                    </h2>
+
+                    <p>
+                        Manage application notifications.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-card">
+
+
+                <div class="setting-row">
+
+                    <div class="setting-information">
+
+                        <strong>
+                            Analysis Completion
+                        </strong>
+
+                        <p>
+                            Notify when contract analysis is complete.
+                        </p>
+
+                    </div>
+
+
+                    <label class="toggle">
+
+                        <input type="checkbox" id="analysisNotificationToggle" checked>
+
+                        <span class="toggle-slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="setting-row">
+
+                    <div class="setting-information">
+
+                        <strong>
+                            Compliance Alerts
+                        </strong>
+
+                        <p>
+                            Notify when compliance issues are detected.
+                        </p>
+
+                    </div>
+
+
+                    <label class="toggle">
+
+                        <input type="checkbox" id="complianceNotificationToggle" checked>
+
+                        <span class="toggle-slider"></span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PRIVACY -->
+
+        <section class="settings-section">
+
+            <div class="settings-section-header">
+
+                <div class="settings-section-icon">
+                    🛡
+                </div>
+
+                <div>
+
+                    <h2>
+                        Privacy & Data
+                    </h2>
+
+                    <p>
+                        Manage local application data.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-card">
+
+
+                <div class="setting-row">
+
+                    <div class="setting-information">
+
+                        <strong>
+                            Save Preferences
+                        </strong>
+
+                        <p>
+                            Remember your settings in this browser.
+                        </p>
+
+                    </div>
+
+
+                    <label class="toggle">
+
+                        <input type="checkbox" id="savePreferencesToggle" checked>
+
+                        <span class="toggle-slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="setting-row">
+
+                    <div class="setting-information">
+
+                        <strong>
+                            Clear Local Settings
+                        </strong>
+
+                        <p>
+                            Remove saved ContractGuard preferences from this browser.
+                        </p>
+
+                    </div>
+
+
+                    <button type="button" class="secondary-button" id="clearSettingsButton">
+                        Clear
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- BACKEND API SETTINGS -->
+        <section class="settings-section">
+
+            <div class="settings-section-header">
+
+                <div class="settings-section-icon">
+                    🌐
+                </div>
+
+                <div>
+                    <h2>
+                        Backend API Connection
+                    </h2>
+
+                    <p>
+                        Configure the FastAPI backend URL (leave blank to use current origin)
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="settings-card">
+
+                <div class="setting-row" style="flex-direction:column; align-items:flex-start; gap:10px;">
+
+                    <div class="setting-information">
+
+                        <strong>
+                            API Base URL
+                        </strong>
+
+                        <p>
+                            Automatically detects your live server origin. You can also specify a custom backend URL.
+                        </p>
+
+                    </div>
+
+                    <div style="width:100%; display:flex; gap:10px; flex-wrap:wrap;">
+
+                        <input type="text" id="apiUrlInput" placeholder="Auto-detected (leave blank) or enter URL" style="flex:1; min-width:240px; padding:10px 14px; border:1px solid #d1d5db; border-radius:8px; font-size:12px; color:#111827; outline:none;">
+
+                        <button type="button" class="secondary-button" id="testApiButton">
+                            Test API Connection
+                        </button>
+
+                    </div>
+
+                    <span id="apiConnectionStatus" style="font-size:11px; font-weight:600;"></span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SAVE AREA -->
+
+        <section class="settings-actions">
+
+            <button type="button" class="secondary-button" id="resetSettingsButton">
+                Reset to Defaults
+            </button>
+
+
+            <button type="button" class="primary-button" id="saveSettingsButton">
+                Save Settings
+            </button>
+
+        </section>
+
+
+        <!-- STATUS -->
+
+        <p id="settingsStatus" class="settings-status"></p>
+
+
+        <!-- FOOTER -->
+
+        <footer class="app-footer">
+
+            <span>
+                ContractGuard AI
+            </span>
+
+            <span>
+                Application preferences
+            </span>
+
+        </footer>
+
+
+    </main>
+
+
+    <script src="js/config.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/settings.js"></script>
+
+</body>
+
+</html>

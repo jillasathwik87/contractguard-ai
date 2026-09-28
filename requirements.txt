@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+python-multipart
+pydantic
+pypdf
+langchain
+langchain-community
+langchain-core
+langchain-chroma
+langchain-ollama
+chromadb
+gradio

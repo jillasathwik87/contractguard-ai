@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ContractGuard AI - Ask AI</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-logo">
+                CG
+            </div>
+
+            <div class="brand-text">
+                <h2>ContractGuard</h2>
+                <span>AI Compliance</span>
+            </div>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <a href="index.html" class="nav-link">
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="contracts.html" class="nav-link">
+                <span class="nav-icon">▤</span>
+                <span>Contracts</span>
+            </a>
+
+            <a href="compliance.html" class="nav-link">
+                <span class="nav-icon">✓</span>
+                <span>Compliance Rules</span>
+            </a>
+
+            <a href="ask-ai.html" class="nav-link active">
+                <span class="nav-icon">✦</span>
+                <span>Ask AI</span>
+            </a>
+
+            <a href="settings.html" class="nav-link">
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-footer">
+
+            <div class="system-status">
+
+                <span class="status-dot"></span>
+
+                <div>
+                    <strong>System Online</strong>
+                    <small>ContractGuard backend</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <p class="eyebrow">
+                    AI CONTRACT ASSISTANT
+                </p>
+
+                <h1>
+                    Ask AI
+                </h1>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <div class="profile">
+
+                    <div class="profile-avatar">
+                        CG
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong>
+                            Contract Manager
+                        </strong>
+
+                        <span>
+                            AI workspace
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- INTRO -->
+
+        <section class="welcome-banner">
+
+            <div>
+
+                <p class="banner-label">
+                    CONTRACT Q&A
+                </p>
+
+                <h2>
+                    Ask questions about your contract
+                </h2>
+
+                <p>
+                    Ask ContractGuard AI questions and receive
+                    answers based on the analyzed contract.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTRACT SELECTOR -->
+
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h3>
+                        Select Contract
+                    </h3>
+
+                    <p>
+                        Choose the contract you want to ask questions about.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <select id="aiContractSelector" style="
+                    width:100%;
+                    padding:13px 14px;
+                    border:1px solid #d1d5db;
+                    border-radius:10px;
+                    background:#ffffff;
+                    font-size:11px;
+                    color:#374151;
+                    outline:none;
+                ">
+
+                <option value="">
+                    Select an analyzed contract
+                </option>
+
+            </select>
+
+
+            <p id="aiContractStatus" style="
+                    margin-top:10px;
+                    font-size:10px;
+                    color:#6b7280;
+                ">
+                Analyze a contract first from the Contracts page.
+            </p>
+
+        </section>
+
+
+        <!-- QUESTION -->
+
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h3>
+                        Ask a Question
+                    </h3>
+
+                    <p>
+                        Ask about clauses, obligations, dates, payments,
+                        confidentiality, termination and more.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <textarea id="aiQuestion" rows="5" placeholder="Example: What is the termination notice period?" style="
+                    width:100%;
+                    box-sizing:border-box;
+                    padding:14px;
+                    border:1px solid #d1d5db;
+                    border-radius:10px;
+                    background:#ffffff;
+                    font-size:11px;
+                    color:#111827;
+                    resize:vertical;
+                    outline:none;
+                "></textarea>
+
+
+            <div style="
+                    display:flex;
+                    justify-content:flex-end;
+                    margin-top:14px;
+                ">
+
+                <button type="button" class="primary-button" id="askAIButton">
+                    Ask AI
+                </button>
+
+            </div>
+
+
+            <p id="aiStatus" style="
+                    margin-top:12px;
+                    font-size:10px;
+                    color:#6b7280;
+                "></p>
+
+        </section>
+
+
+        <!-- ANSWER -->
+
+        <section class="dashboard-card" id="aiAnswerSection" style="display:none;">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h3>
+                        AI Answer
+                    </h3>
+
+                    <p>
+                        Answer generated from the selected contract.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div id="aiAnswer" style="
+                    padding:18px;
+                    border-radius:12px;
+                    background:#f8fafc;
+                    border:1px solid #e5e7eb;
+                    color:#374151;
+                    font-size:12px;
+                    line-height:1.7;
+                "></div>
+
+        </section>
+
+
+        <!-- SOURCE CLAUSE -->
+
+        <section class="dashboard-card" id="aiSourceSection" style="display:none;">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h3>
+                        Source Clause
+                    </h3>
+
+                    <p>
+                        Contract text used to support the answer.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div id="aiSource" style="
+                    padding:18px;
+                    border-left:4px solid #6366f1;
+                    border-radius:8px;
+                    background:#f8fafc;
+                    color:#374151;
+                    font-size:11px;
+                    line-height:1.7;
+                "></div>
+
+        </section>
+
+
+        <!-- EXAMPLE QUESTIONS -->
+
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h3>
+                        Example Questions
+                    </h3>
+
+                    <p>
+                        Click a question to use it.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div style="
+                    display:grid;
+                    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+                    gap:12px;
+                ">
+
+                <button type="button" class="question-card" data-question="What is the termination notice period?">
+                    What is the termination notice period?
+                </button>
+
+
+                <button type="button" class="question-card" data-question="What are the confidentiality obligations?">
+                    What are the confidentiality obligations?
+                </button>
+
+
+                <button type="button" class="question-card" data-question="What are the payment terms?">
+                    What are the payment terms?
+                </button>
+
+
+                <button type="button" class="question-card" data-question="What happens when the contract expires?">
+                    What happens when the contract expires?
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer class="app-footer">
+
+            <span>
+                ContractGuard AI
+            </span>
+
+            <span>
+                AI-powered contract Q&A
+            </span>
+
+        </footer>
+
+
+    </main>
+
+
+    <script src="js/config.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/ask-ai.js"></script>
+
+</body>
+
+</html>

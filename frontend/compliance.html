@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ContractGuard AI - Compliance Rules</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-logo">
+                CG
+            </div>
+
+            <div class="brand-text">
+                <h2>ContractGuard</h2>
+                <span>AI Compliance</span>
+            </div>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <a href="index.html" class="nav-link">
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="contracts.html" class="nav-link">
+                <span class="nav-icon">▤</span>
+                <span>Contracts</span>
+            </a>
+
+            <a href="compliance.html" class="nav-link active">
+                <span class="nav-icon">✓</span>
+                <span>Compliance Rules</span>
+            </a>
+
+            <a href="ask-ai.html" class="nav-link">
+                <span class="nav-icon">✦</span>
+                <span>Ask AI</span>
+            </a>
+
+            <a href="settings.html" class="nav-link">
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-footer">
+
+            <div class="system-status">
+
+                <span class="status-dot"></span>
+
+                <div>
+                    <strong>System Online</strong>
+                    <small>ContractGuard backend</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <p class="eyebrow">
+                    COMPLIANCE MANAGEMENT
+                </p>
+
+                <h1>
+                    Compliance Rules
+                </h1>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <div class="profile">
+
+                    <div class="profile-avatar">
+                        CG
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong>
+                            Contract Manager
+                        </strong>
+
+                        <span>
+                            Compliance workspace
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- INTRO -->
+
+        <section class="welcome-banner">
+
+            <div>
+
+                <p class="banner-label">
+                    RULE LIBRARY
+                </p>
+
+                <h2>
+                    Contract Compliance Rules
+                </h2>
+
+                <p>
+                    Review the rules used by ContractGuard AI
+                    when checking uploaded contracts.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- SUMMARY CARDS -->
+
+        <section class="stats-grid">
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon blue">
+                    ✓
+                </div>
+
+                <div>
+
+                    <span>
+                        Active Rules
+                    </span>
+
+                    <strong id="activeRulesCount">
+                        10
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon green">
+                    ✓
+                </div>
+
+                <div>
+
+                    <span>
+                        Automatic Checks
+                    </span>
+
+                    <strong>
+                        Enabled
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon orange">
+                    !
+                </div>
+
+                <div>
+
+                    <span>
+                        Rule Categories
+                    </span>
+
+                    <strong>
+                        10
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon purple">
+                    AI
+                </div>
+
+                <div>
+
+                    <span>
+                        AI Assistance
+                    </span>
+
+                    <strong>
+                        Enabled
+                    </strong>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- RULE SEARCH -->
+
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h3>
+                        Rule Library
+                    </h3>
+
+                    <p>
+                        Search and review compliance requirements.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div style="
+                    display:flex;
+                    gap:12px;
+                    margin-bottom:18px;
+                    flex-wrap:wrap;
+                ">
+
+                <input type="text" id="ruleSearch" placeholder="Search compliance rules..." style="
+                        flex:1;
+                        min-width:220px;
+                        padding:12px 14px;
+                        border:1px solid #d1d5db;
+                        border-radius:10px;
+                        font-size:11px;
+                        outline:none;
+                    ">
+
+
+                <select id="categoryFilter" style="
+                        padding:12px 14px;
+                        border:1px solid #d1d5db;
+                        border-radius:10px;
+                        background:#fff;
+                        font-size:11px;
+                        color:#374151;
+                    ">
+
+                    <option value="all">
+                        All Categories
+                    </option>
+
+                    <option value="confidentiality">
+                        Confidentiality
+                    </option>
+
+                    <option value="termination">
+                        Termination
+                    </option>
+
+                    <option value="payment">
+                        Payment
+                    </option>
+
+                    <option value="liability">
+                        Liability
+                    </option>
+
+                    <option value="intellectual-property">
+                        Intellectual Property
+                    </option>
+
+                    <option value="data-protection">
+                        Data Protection
+                    </option>
+
+                    <option value="governing-law">
+                        Governing Law
+                    </option>
+
+                    <option value="notice">
+                        Notice
+                    </option>
+
+                    <option value="duration">
+                        Duration
+                    </option>
+
+                    <option value="renewal">
+                        Renewal
+                    </option>
+
+                </select>
+
+
+                <button type="button" class="primary-button" id="resetRulesButton">
+                    Reset
+                </button>
+
+            </div>
+
+
+            <!-- RULES -->
+
+            <div id="rulesContainer">
+
+                <div class="rules-table-wrapper">
+
+                    <table class="compliance-rules-table">
+
+                        <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Rule</th>
+                                <th>Description</th>
+                                <th>Category</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <!-- 01 -->
+                            <tr class="rule-card" data-category="confidentiality">
+
+                                <td class="rule-number-cell">
+                                    <span class="rule-number">01</span>
+                                </td>
+
+                                <td class="rule-name-cell">
+                                    <div class="rule-icon">🔒</div>
+                                    <strong>Confidentiality</strong>
+                                </td>
+
+                                <td class="rule-description">
+                                    The contract should contain appropriate
+                                    confidentiality obligations for protected
+                                    information.
+                                </td>
+
+                                <td>
+                                    <span class="category-badge">
+                                        Confidentiality
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <!-- 02 -->
+                            <tr class="rule-card" data-category="termination">
+
+                                <td class="rule-number-cell">
+                                    <span class="rule-number">02</span>
+                                </td>
+
+                                <td class="rule-name-cell">
+                                    <div class="rule-icon">⏱️</div>
+                                    <strong>Termination</strong>
+                                </td>
+
+                                <td class="rule-description">
+                                    The contract should define conditions or
+                                    provisions governing termination.
+                                </td>
+
+                                <td>
+                                    <span class="category-badge">
+                                        Termination
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <!-- 03 -->
+                            <tr class="rule-card" data-category="payment">
+
+                                <td class="rule-number-cell">
+                                    <span class="rule-number">03</span>
+                                </td>
+
+                                <td class="rule-name-cell">
+                                    <div class="rule-icon">💳</div>
+                                    <strong>Payment Terms</strong>
+                                </td>
+
+                                <td class="rule-description">
+                                    Payment obligations, amounts or payment
+                                    conditions should be clearly defined.
+                                </td>
+
+                                <td>
+                                    <span class="category-badge">
+                                        Payment
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <!-- 04 -->
+                            <tr class="rule-card" data-category="liability">
+
+                                <td class="rule-number-cell">
+                                    <span class="rule-number">04</span>
+                                </td>
+
+                                <td class="rule-name-cell">
+                                    <div class="rule-icon">🛡️</div>
+                                    <strong>Liability</strong>
+                                </td>
+
+                                <td class="rule-description">
+                                    The agreement should address liability
+                                    responsibilities and limitations where applicable.
+                                </td>
+
+                                <td>
+                                    <span class="category-badge">
+                                        Liability
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <!-- 05 -->
+                            <tr class="rule-card" data-category="intellectual-property">
+
+                                <td class="rule-number-cell">
+                                    <span class="rule-number">05</span>
+                                </td>
+
+                                <td class="rule-name-cell">
+                                    <div class="rule-icon">💡</div>
+                                    <strong>Intellectual Property</strong>
+                                </td>
+
+                                <td class="rule-description">
+                                    Ownership and permitted use of intellectual
+                                    property should be addressed when relevant.
+                                </td>
+
+                                <td>
+                                    <span class="category-badge">
+                                        Intellectual Property
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <!-- 06 -->
+                            <tr class="rule-card" data-category="data-protection">
+
+                                <td class="rule-number-cell">
+                                    <span class="rule-number">06</span>
+                                </td>
+
+                                <td class="rule-name-cell">
+                                    <div class="rule-icon">🔐</div>
+                                    <strong>Data Protection</strong>
+                                </td>
+
+                                <td class="rule-description">
+                                    Relevant contracts should address handling
+                                    and protection of applicable data.
+                                </td>
+
+                                <td>
+                                    <span class="category-badge">
+                                        Data Protection
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <!-- 07 -->
+                            <tr class="rule-card" data-category="governing-law">
+
+                                <td class="rule-number-cell">
+                                    <span class="rule-number">07</span>
+                                </td>
+
+                                <td class="rule-name-cell">
+                                    <div class="rule-icon">⚖️</div>
+                                    <strong>Governing Law</strong>
+                                </td>
+
+                                <td class="rule-description">
+                                    The contract should identify the applicable
+                                    governing law or jurisdiction where required.
+                                </td>
+
+                                <td>
+                                    <span class="category-badge">
+                                        Governing Law
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <!-- 08 -->
+                            <tr class="rule-card" data-category="notice">
+
+                                <td class="rule-number-cell">
+                                    <span class="rule-number">08</span>
+                                </td>
+
+                                <td class="rule-name-cell">
+                                    <div class="rule-icon">📢</div>
+                                    <strong>Notice Period</strong>
+                                </td>
+
+                                <td class="rule-description">
+                                    Required notice periods should be clearly
+                                    stated where applicable.
+                                </td>
+
+                                <td>
+                                    <span class="category-badge">
+                                        Notice
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <!-- 09 -->
+                            <tr class="rule-card" data-category="duration">
+
+                                <td class="rule-number-cell">
+                                    <span class="rule-number">09</span>
+                                </td>
+
+                                <td class="rule-name-cell">
+                                    <div class="rule-icon">📅</div>
+                                    <strong>Contract Duration</strong>
+                                </td>
+
+                                <td class="rule-description">
+                                    The agreement duration or effective period
+                                    should be identified where applicable.
+                                </td>
+
+                                <td>
+                                    <span class="category-badge">
+                                        Duration
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <!-- 10 -->
+                            <tr class="rule-card" data-category="renewal">
+
+                                <td class="rule-number-cell">
+                                    <span class="rule-number">10</span>
+                                </td>
+
+                                <td class="rule-name-cell">
+                                    <div class="rule-icon">🔄</div>
+                                    <strong>Renewal</strong>
+                                </td>
+
+                                <td class="rule-description">
+                                    Renewal conditions or automatic renewal
+                                    provisions should be clearly identified.
+                                </td>
+
+                                <td>
+                                    <span class="category-badge">
+                                        Renewal
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+            <!-- NO RESULTS -->
+
+            <div id="noRulesMessage" style="
+                    display:none;
+                    text-align:center;
+                    padding:40px 20px;
+                    color:#6b7280;
+                ">
+
+                <h3>
+                    No rules found
+                </h3>
+
+                <p>
+                    Try a different search or category.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- RULE INFORMATION -->
+
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h3>
+                        How Compliance Rules Work
+                    </h3>
+
+                    <p>
+                        Rules are checked automatically during contract analysis.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="workflow-grid">
+
+
+                <div class="workflow-step">
+
+                    <div class="workflow-number">
+                        01
+                    </div>
+
+                    <h4>
+                        Upload
+                    </h4>
+
+                    <p>
+                        Upload a supported contract PDF.
+                    </p>
+
+                </div>
+
+
+                <div class="workflow-step">
+
+                    <div class="workflow-number">
+                        02
+                    </div>
+
+                    <h4>
+                        Extract
+                    </h4>
+
+                    <p>
+                        ContractGuard reads the contract text.
+                    </p>
+
+                </div>
+
+
+                <div class="workflow-step">
+
+                    <div class="workflow-number">
+                        03
+                    </div>
+
+                    <h4>
+                        Check
+                    </h4>
+
+                    <p>
+                        Rules are evaluated against the contract.
+                    </p>
+
+                </div>
+
+
+                <div class="workflow-step">
+
+                    <div class="workflow-number">
+                        04
+                    </div>
+
+                    <h4>
+                        Report
+                    </h4>
+
+                    <p>
+                        Results and missing requirements are displayed.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer class="app-footer">
+
+            <span>
+                ContractGuard AI
+            </span>
+
+            <span>
+                Compliance rule management
+            </span>
+
+        </footer>
+
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="js/config.js"></script>
+
+    <script src="js/common.js"></script>
+
+    <script src="js/compliance.js"></script>
+
+</body>
+
+</html>
