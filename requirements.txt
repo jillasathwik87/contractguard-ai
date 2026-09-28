@@ -10,3 +10,5 @@ langchain-chroma
 langchain-ollama
 chromadb
 gradio
+streamlit
+requests
