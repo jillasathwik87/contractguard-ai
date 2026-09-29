@@ -1,17 +1,10 @@
-import os
-import requests
 import streamlit as st
 
-
-# ============================================================
-# CONFIGURATION
-# ============================================================
-
-API_BASE = os.getenv(
-    "CONTRACTGUARD_API_URL",
-    "https://toolkit-isbn-statute-modelling.trycloudflare.com"
-).rstrip("/")
-
+from contract_engine import (
+    analyze_contract,
+    extract_contracts_from_pdf,
+    answer_question,
+)
 
 # ============================================================
 # PAGE CONFIG
@@ -61,26 +54,7 @@ st.warning(
 )
 
 
-# ============================================================
-# BACKEND STATUS
-# ============================================================
-
-try:
-    health = requests.get(
-        f"{API_BASE}/api/health",
-        timeout=5
-    )
-
-    if health.ok:
-        st.success("🟢 ContractGuard backend is connected")
-    else:
-        st.error("🔴 Backend is not responding correctly")
-
-except Exception:
-    st.error(
-        f"🔴 Cannot connect to backend at {API_BASE}"
-    )
-
+st.success("🟢 ContractGuard AI engine is ready")
 
 # ============================================================
 # CONTRACT UPLOAD
@@ -92,7 +66,6 @@ uploaded_file = st.file_uploader(
     "Choose a PDF contract",
     type=["pdf"]
 )
-
 
 if uploaded_file is not None:
 
@@ -109,49 +82,53 @@ if uploaded_file is not None:
 
             try:
 
-                files = {
-                    "file": (
-                        uploaded_file.name,
-                        uploaded_file.getvalue(),
-                        "application/pdf"
-                    )
-                }
+                pdf_bytes = uploaded_file.getvalue()
 
-                response = requests.post(
-                    f"{API_BASE}/api/analyze",
-                    files=files,
-                    timeout=300
+                contracts = extract_contracts_from_pdf(
+                    pdf_bytes
                 )
 
-                data = response.json()
+                # ------------------------------------------------
+                # Multiple contracts detected
+                # ------------------------------------------------
 
-                if not data.get("success"):
+                if len(contracts) > 1:
 
-                    st.error(
-                        data.get(
-                            "error",
-                            "Contract analysis failed."
-                        )
+                    st.session_state.available_contracts = list(
+                        contracts.keys()
                     )
 
-                elif data.get("selection_required"):
-
-                    st.session_state.available_contracts = (
-                        data.get(
-                            "available_contracts",
-                            []
-                        )
-                    )
+                    st.session_state.contract_documents = contracts
 
                     st.info(
                         "This PDF contains multiple contracts. "
                         "Please select one below."
                     )
 
+                # ------------------------------------------------
+                # Single contract detected
+                # ------------------------------------------------
+
                 else:
 
+                    contract_name = list(
+                        contracts.keys()
+                    )[0]
+
+                    contract_text = contracts[
+                        contract_name
+                    ]
+
+                    data = analyze_contract(
+                        contract_text,
+                        contract_name
+                    )
+
                     st.session_state.analysis = data
+
                     st.session_state.available_contracts = []
+
+                    st.session_state.contract_documents = contracts
 
                     st.success(
                         "✅ Contract analyzed successfully!"
@@ -160,7 +137,7 @@ if uploaded_file is not None:
             except Exception as e:
 
                 st.error(
-                    f"Error connecting to backend: {e}"
+                    f"Contract analysis failed: {e}"
                 )
 
 
@@ -170,16 +147,16 @@ if uploaded_file is not None:
 
 if st.session_state.available_contracts:
 
-    st.header("📑 Select Contract")
-
-    selected = st.selectbox(
-        "Choose the contract you want to analyze",
-        st.session_state.available_contracts
+    selected_contract = st.selectbox(
+        "Select a contract to analyze:",
+        st.session_state.available_contracts,
+        key="contract_selector"
     )
 
     if st.button(
-        "Analyze Selected Contract",
-        type="primary"
+        "📋 Analyze Selected Contract",
+        type="primary",
+        key="analyze_selected_contract"
     ):
 
         with st.spinner(
@@ -188,54 +165,34 @@ if st.session_state.available_contracts:
 
             try:
 
-                original_file = (
-                    st.session_state.uploaded_file
+                contract_text = (
+                    st.session_state.contract_documents[
+                        selected_contract
+                    ]
                 )
 
-                files = {
-                    "file": (
-                        original_file.name,
-                        original_file.getvalue(),
-                        "application/pdf"
-                    )
-                }
-
-                response = requests.post(
-                    f"{API_BASE}/api/analyze",
-                    params={
-                        "contract_name": selected
-                    },
-                    files=files,
-                    timeout=300
+                data = analyze_contract(
+                    contract_text,
+                    selected_contract
                 )
 
-                data = response.json()
+                st.session_state.analysis = data
 
-                if data.get("success"):
+                st.session_state.selected_contract = (
+                    selected_contract
+                )
 
-                    st.session_state.analysis = data
-                    st.session_state.selected_contract = selected
+                st.session_state.available_contracts = []
 
-                    st.success(
-                        "✅ Selected contract analyzed successfully!"
-                    )
-
-                else:
-
-                    st.error(
-                        data.get(
-                            "error",
-                            "Analysis failed."
-                        )
-                    )
+                st.success(
+                    f"✅ {selected_contract} analyzed successfully!"
+                )
 
             except Exception as e:
 
                 st.error(
-                    f"Error connecting to backend: {e}"
+                    f"Contract analysis failed: {e}"
                 )
-
-
 # ============================================================
 # DISPLAY ANALYSIS
 # ============================================================
@@ -389,15 +346,11 @@ if analysis:
 
                 try:
 
-                    response = requests.post(
-                        f"{API_BASE}/api/ask",
-                        json={
-                            "question": question
-                        },
-                        timeout=300
+                    data = answer_question(
+                    question,
+                    analysis.get("contract_text", ""),
+                    analysis.get("clauses", [])
                     )
-
-                    data = response.json()
 
                     if data.get("success"):
 
