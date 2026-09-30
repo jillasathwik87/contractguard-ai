@@ -1,285 +1,119 @@
-# 🛡️ ContractGuardAI
+# Contract Guard AI 🛡️
 
-ContractGuardAI is an AI-powered contract analysis assistant designed to help users understand contracts, identify important clauses, detect potential risks, and extract key information from legal documents.
+**Contract Guard AI** is an AI-powered contract analysis agent designed to help users review contracts, identify potentially risky clauses, and understand important obligations in simple language.
 
-## 🚀 Features
+## 🚀 Overview
 
-- 📄 Upload and analyze contracts
-- 🤖 AI-powered contract understanding
-- 🔍 Identify important clauses
-- ⚠️ Detect potential risks and unusual terms
-- 📌 Extract key contract information
-- 📅 Identify important dates and deadlines
-- 💰 Analyze payment and financial terms
-- 👥 Identify parties and responsibilities
-- 📝 Generate easy-to-understand contract summaries
-- 💬 Ask questions about uploaded contracts
-- 🌐 Web-based interface
-- 📱 Mobile-friendly design
+Contracts can contain complex legal language, hidden obligations, deadlines, and clauses that may introduce risks.
 
-## 🎯 Problem Statement
+Contract Guard AI helps analyze a contract and highlights areas that may require attention, such as:
 
-Contracts can contain complex legal language that is difficult for users to understand.
+* ⚠️ Potentially risky clauses
+* 📅 Important dates and deadlines
+* 💰 Payment and financial obligations
+* 🔒 Confidentiality requirements
+* ⚖️ Liability and indemnification clauses
+* ❌ Termination conditions
+* 🔄 Renewal and auto-renewal provisions
+* 📝 Unusual or important contractual terms
 
-ContractGuardAI helps simplify contract information by presenting important clauses, obligations, deadlines, and potential areas of concern in a clearer format.
+The goal is to make contract review **faster, clearer, and easier to understand**.
 
-> **Note:** ContractGuardAI is an AI assistance tool and does not provide legal advice. Users should consult a qualified legal professional for legal decisions.
+## ✨ Features
 
-## 🏗️ How It Works
+### 🔍 Contract Analysis
 
-```text
-User
-  │
-  ▼
-Upload Contract
-  │
-  ▼
-ContractGuardAI
-  │
-  ├── Document Processing
-  ├── Text Extraction
-  ├── Clause Analysis
-  ├── Risk Detection
-  └── AI Analysis
-  │
-  ▼
-Contract Summary
-  │
-  ├── Important Clauses
-  ├── Risks
-  ├── Obligations
-  ├── Dates
-  └── Questions & Answers
-````
+Analyze the contents of a contract and identify important provisions.
 
-## 🧩 Key Capabilities
+### 🚨 Risk Detection
 
-### 📄 Contract Upload
+Highlight clauses that may present potential risks or require closer review.
 
-Users can upload a contract document for analysis.
+### 📌 Key Obligation Extraction
 
-### 🔍 Clause Analysis
+Identify important responsibilities, commitments, deadlines, and payment terms.
 
-The system identifies important sections such as:
+### 💡 Plain-Language Explanations
 
-* Termination clauses
-* Payment terms
-* Renewal clauses
-* Confidentiality clauses
-* Liability clauses
-* Intellectual property clauses
-* Dispute resolution clauses
+Convert complex contractual language into easier-to-understand explanations.
 
-### ⚠️ Risk Identification
+### 📊 Structured Results
 
-ContractGuardAI can highlight terms that may require additional attention.
-
-Examples include:
-
-* Automatic renewal
-* Long notice periods
-* Penalty clauses
-* Unclear obligations
-* Liability limitations
-* Termination restrictions
-
-### 🤖 AI Contract Assistant
-
-Users can ask questions about their uploaded contract and receive responses based on the document.
-
-Example questions:
-
-```text
-What is the termination period?
-
-When does this contract expire?
-
-What are my payment obligations?
-
-Is there an automatic renewal clause?
-
-What happens if I terminate the contract early?
-```
-
-## 🛠️ Technologies Used
-
-* Python
-* AI / LLM
-* FastAPI
-* HTML
-* CSS
-* JavaScript
-* GitHub
-* Render
+Organize findings so users can quickly understand the important parts of a contract.
 
 ## 📁 Project Structure
 
 ```text
-contract-guardai.agent/
+contract-guard-ai/
 │
-├── frontend/
-│   ├── index.html
-│   ├── app.js
-│   └── styles.css
-│
-├── data/
-│
-├── api.py
-├── app.py
-├── agent.py
-├── config.py
-├── ingestion.py
-├── retriever.py
-├── tools.py
-│
-├── requirements.txt
-├── requirements-public.txt
-├── render.yaml
-├── README.md
-└── .env
+├── contract-guardai.agent
+└── README.md
 ```
 
-> The exact project structure may vary depending on the current implementation.
+## 🛠️ Usage
 
-## ⚙️ Installation
+Add the `contract-guardai.agent` file to your project or compatible agent environment and use it to analyze contracts.
 
-Clone the repository:
-
-```bash
-git clone https://github.com/badugukarthik/contract-guardai.agent.git
-```
-
-Move into the project:
-
-```bash
-cd contract-guardai.agent
-```
-
-Create a virtual environment:
-
-```bash
-python -m venv .venv
-```
-
-Activate it on Windows:
-
-```bash
-.venv\Scripts\activate
-```
-
-Install the required packages:
-
-```bash
-pip install -r requirements.txt
-```
-
-## 🔐 Environment Variables
-
-Create a `.env` file for API keys and other private configuration.
-
-Example:
-
-```env
-GROQ_API_KEY=your_api_key_here
-```
-
-⚠️ **Never upload your real API keys, passwords, or secrets to GitHub.**
-
-Add `.env` to your `.gitignore` file:
+A typical workflow is:
 
 ```text
-.env
-.venv/
-__pycache__/
+1. Provide a contract
+        ↓
+2. Contract Guard AI analyzes the document
+        ↓
+3. Important clauses are identified
+        ↓
+4. Potential risks are highlighted
+        ↓
+5. Obligations and deadlines are summarized
+        ↓
+6. Results are presented in an easy-to-understand format
 ```
 
-## ▶️ Running Locally
+## 🎯 Example Use Cases
 
-If the project uses FastAPI, start the server with:
+Contract Guard AI can be useful for reviewing:
 
-```bash
-uvicorn api:app --reload
-```
+* Employment agreements
+* Service agreements
+* Freelance contracts
+* Vendor agreements
+* Non-disclosure agreements (NDAs)
+* Lease agreements
+* Partnership agreements
+* Software and SaaS agreements
 
-The application will normally be available at:
+## ⚠️ Disclaimer
 
-```text
-http://127.0.0.1:8000
-```
+Contract Guard AI is an AI-based contract analysis tool and **does not provide legal advice**.
 
-FastAPI documentation:
-
-```text
-http://127.0.0.1:8000/docs
-```
-
-## 🌐 Deployment
-
-The project can be deployed using platforms such as Render.
-
-The repository can contain a `render.yaml` configuration file for deployment.
-
-Example production start command:
-
-```bash
-uvicorn api_public:app --host 0.0.0.0 --port $PORT
-```
-
-After deployment, the application can be accessed through a public web URL from a computer or mobile device.
-
-## 🔒 Security
-
-ContractGuardAI may process sensitive documents. Users should avoid uploading confidential information unless they understand how their deployment and data storage are configured.
-
-Important security practices:
-
-* Never commit API keys to GitHub.
-* Never commit `.env` files.
-* Protect uploaded documents.
-* Use environment variables for secrets.
-* Use HTTPS for production deployments.
-* Avoid storing sensitive documents unnecessarily.
-
-## ⚖️ Legal Disclaimer
-
-ContractGuardAI is an AI-powered document analysis tool.
-
-It is **not a law firm, lawyer, or legal advisor** and does not provide legal advice.
-
-AI-generated results may contain errors or omissions. Users should consult a qualified legal professional before making important legal or contractual decisions.
+Its analysis may contain errors or miss important information. Users should consult a qualified legal professional for legal advice or before making important decisions based on a contract.
 
 ## 🔮 Future Improvements
 
-* 📑 Support for more document formats
-* 🌍 Multi-language contract analysis
-* 📊 Contract risk scoring
-* 🔔 Deadline reminders
-* 📧 Email notifications
-* 👤 User authentication
-* 🗄️ Secure document storage
-* 📱 Improved mobile experience
-* 🔗 Contract comparison
-* 🧠 Improved clause detection
+Potential future features include:
 
-## 👨‍💻 Author
+* Contract comparison
+* Clause-by-clause analysis
+* Risk scoring and categorization
+* Automatic contract summaries
+* Deadline and renewal reminders
+* Multiple-language contract analysis
+* Improved legal clause detection
+* Exportable analysis reports
 
-**saisathwik**
+## 🤝 Contributing
 
-GitHub:
+Contributions, suggestions, and improvements are welcome.
 
-[https://github.com/saisathwik](https://github.com/badugukarthik)
+If you find an issue or have an idea for improving Contract Guard AI, feel free to open an issue or submit a pull request.
 
 ## 📄 License
 
-This project is currently intended for educational, development, and hackathon purposes.
+This project is currently available for development and experimentation. A formal open-source license can be added as the project evolves.
 
-```
+---
 
-### ⚠️ Before you commit it
+**Contract Guard AI — Understand your contracts. Identify what matters.**
 
-If your repository contains a `.env` file, **don't upload it** if it contains your actual API key.
 
-Your repository should contain your source code and configuration templates, but secrets should stay in environment variables.
-
-If you show me the **files inside your `contract-guardai.agent` project**, I can also make this README match your **actual project structure and features** instead of using generic filenames.
-```
